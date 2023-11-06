@@ -1,2 +1,2 @@
 # PokemonStatsPrediction
- Python,Flas
+ Python,Flask
