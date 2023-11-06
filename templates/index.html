@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Pokemon Stats Prediction</title>
+    <link href='https://fonts.googleapis.com/css?family=Nerko One' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet'>
+  </head>
+  <body class="font-mono mx-auto" style="background-color:#585ad6">
+    <style>
+      #preloader{
+        background: #181b1d url(static/img/simple_pokeball.gif) no-repeat center center;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        z-index: 100;
+      }
+    </style>
+    <div id="preloader"></div>
+    <div style="display: none">
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe width="560" src="https://www.youtube.com/embed/4S_SoFIw198" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <!-- Container -->
+    <div class="container mx-auto" style="padding: 100px;">
+      <div class="flex justify-center px-6 my-12">
+        <!-- Row -->
+        <div class="w-full xl:w-4/4 lg:w-11/12 flex">
+          <!-- Col -->
+          <img
+            class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
+            src="{{ url_for('static', filename='img/whos.png') }}"
+          ></img>
+          <!-- Col -->
+          <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
+            <div class="px-8 mb-4 text-center">
+              <p class="pt-4 mb-2 text-2xl" style="font-family:'Nerko One';font-size: 32pt;" >Pokemon Stats Prediction</p>
+              <p class="mb-4 text-sm text-gray-700" style="font-family:'Oxygen';font-size: 12pt;">
+                Enter your pokemon stats and we'll predict it!
+              </p>
+            </div>
+            <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" action="/result" method="POST">
+              <div class="mb-4">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="name"
+                  style="font-family:'Oxygen';font-size: 10pt;"
+                >
+                  Nama Trainer
+                </label>
+                <input required
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="name"
+                  type="text"
+                  placeholder="Enter name"
+                  name="name"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="attack_score"
+                  style="font-family:'Oxygen';font-size: 10pt;"
+                >
+                  Attack Score
+                </label>
+                <input required
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="attack_score"
+                  type="number"
+                  placeholder="Enter Attack Score"
+                  name="attack_score"
+                  min="0"
+                />
+              </div>
+              <div class="mb-4">
+                <label
+                  class="block mb-2 text-sm font-bold text-gray-700"
+                  for="defend_score"
+                  style="font-family:'Oxygen';font-size: 10pt;"
+                >
+                  Defend Score
+                </label>
+                <input required
+                  class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                  id="defend_score"
+                  type="number"
+                  placeholder="Enter Defend Score"
+                  name="defend_score"
+                />
+              </div>
+              <div class="mb-2 text-center">
+                <input required
+                  class="w-full px-4 py-2 font-bold text-white bg-indigo-500 cursor-pointer rounded-full hover:bg-indigo-700 focus:outline-none focus:shadow-outline"
+                  type="submit"
+                  value="Submit"
+                >
+                </input>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener('load', function(){
+        const preloader = document.getElementById('preloader');
+        preloader.style.display = 'none';
+      });
+    </script>
+  </body>
+</html>
